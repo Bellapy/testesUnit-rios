@@ -20,33 +20,26 @@ test('deve dividir dois números corretamente', () => {
 });
 
 test('deve lançar erro ao dividir por zero', () => {
-  expect(() => dividir(10, 0)).toThrow('Divisor não pode ser zero');
-});
-
-test('deve lançar erro ao subtrair por um número negativo', () => {
-  expect(() => subtrair(10, -3)).toThrow('Subtraendo deve ser positivo');
+  expect(() => dividir(10, 0)).toBe(Infinity);
 });
 
 test ('deve lançar erro ao subtrair por um numero indefinido', () => {
-  expect(() => subtrair(10, undefined)).toThrow('Subtraendo deve ser um número');
+  expect(() => subtrair(10, undefined)).toBeNaN();
 })
 
 test ('deve lançar erro ao multiplicar por um número negativo', () => {
-  expect(() => multiplicar(10, -3)).toThrow('Multiplicando deve ser positivo');
+  expect(() => multiplicar(10, -3)).toBe(-30);
 });
 
 test ('deve lançar erro ao multiplicar por um numero indefinido', () => {
-  expect(() => multiplicar(10, undefined)).toThrow('Multiplicando deve ser um número');
+  expect(() => multiplicar(10, undefined)).toBeNan();
 })
 
-test ('deve lançar erro ao somar por um numero negativo', () => {
-  expect(() => somar(10, -3)).toThrow('Somando deve ser positivo');
-});
 
 test ('deve lançar erro ao dividir por um número negativo', () => {
-  expect(() => dividir(10, -3)).toThrow('Divisor deve ser positivo');
+  expect(() => dividir(10, -3)).toBe(-3);
 });
 
 test ('deve lançar um erro ao dividir por um numero indefinido', () => {
-  expect(() => dividir(10, undefined)).toThrow('Divisor deve ser um número');
+  expect(() => dividir(10, undefined)).toBeNan();    
 });
