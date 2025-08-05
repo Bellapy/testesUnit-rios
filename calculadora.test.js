@@ -20,26 +20,31 @@ test('deve dividir dois números corretamente', () => {
 });
 
 test('deve lançar erro ao dividir por zero', () => {
-  expect(() => dividir(10, 0)).toBe(Infinity);
+  expect(dividir(10, 0)).toBe(Infinity);
 });
 
 test ('deve lançar erro ao subtrair por um numero indefinido', () => {
-  expect(() => subtrair(10, undefined)).toBeNaN();
+  expect(subtrair(10, undefined)).toBeNaN();
 })
 
 test ('deve lançar erro ao multiplicar por um número negativo', () => {
-  expect(() => multiplicar(10, -3)).toBe(-30);
+  expect(multiplicar(10, -3)).toBe(-30);
 });
 
 test ('deve lançar erro ao multiplicar por um numero indefinido', () => {
-  expect(() => multiplicar(10, undefined)).toBeNan();
+  expect( multiplicar(10, undefined)).toBeNaN();
 })
 
 
 test ('deve lançar erro ao dividir por um número negativo', () => {
-  expect(() => dividir(10, -3)).toBe(-3);
+  expect(dividir(10, -3)).toBeCloseTo(-3.33);
 });
 
 test ('deve lançar um erro ao dividir por um numero indefinido', () => {
-  expect(() => dividir(10, undefined)).toBeNan();    
+  expect(dividir(10, undefined)).toBeNaN();    
+});
+
+test ('deve lançar um erro se um dos parametros for null', () => {    
+  expect(dividir(null, 10)).toBe(0);    
+  expect(dividir(10, null)).toBe(Infinity);    
 });
